@@ -10,7 +10,7 @@ banner = """
 ░█▄▄█ ░█░█░█ ─░█── ░█─ ─▀▀▀▄▄ ░█─── ░█▀▀█ 
 ░█─░█ ░█──▀█ ─░█── ▄█▄ ░█▄▄▄█ ░█▄▄█ ░█─░█
 
-    created by @debian_la   b && @mitchel_ed
+    created by @debian_lab && @mitchel_ed
 """
 
 
