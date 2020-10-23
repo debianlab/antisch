@@ -1,5 +1,5 @@
 # antisch
-ANTISCH - Утилита для тестирования на проникновение в Ваш собственный, учительский аккаунт dnevnik.mos.ru
+ANTISCH - Утилита для тестирования на проникновение в Ваш собственный, учительский аккаунт dnevnik.mos.ru<br />
 <b>Установка на Linux/Termux:</b>
 <ul>
 <li><code>apt update && apt upgtade</code></li>
