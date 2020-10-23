@@ -21,3 +21,5 @@
 <b>Инструкция:</b>
 <br />
 Перед запуском брутфорс атаки обязательно убедитесь что вы заполнили файл slovar.txt собственной базой пароль, иначе атака не начнется.
+
+<a href="https://ibb.co/TghqF5G"><img src="https://i.ibb.co/JskFMPT/screen.png" alt="screen" border="0"></a>
