@@ -22,4 +22,6 @@
 <br />
 Перед запуском брутфорс атаки обязательно убедитесь что вы заполнили файл slovar.txt собственной базой пароль, иначе атака не начнется.
 
+Такжу более подробно можете прочитать в <a href="https://telegra.ph/AntiSch---groza-matematichki-10-24">моей статье на Telegra.ph</a>
+
 <a href="https://ibb.co/TghqF5G"><img src="https://i.ibb.co/JskFMPT/screen.png" alt="screen" border="0"></a>
