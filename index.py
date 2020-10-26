@@ -16,9 +16,6 @@ banner = """
 
 option = 0
 version = 0
-proxies = {
-  'http': '8DYXbsjSKk:hdiviSOfmW@109.196.172.166:52999/'
-}
 def bruteforce(mode, login):
     if mode == "know login":
         clear()
