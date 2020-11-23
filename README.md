@@ -2,7 +2,7 @@
 <a href="https://github.com/debianlab/antisch">ANTISCH</a> - <i>Утилита для тестирования на проникновение в Ваш собственный, учительский аккаунт dnevnik.mos.ru</i><br />
 <b>Установка на Linux/Termux:</b>
 <ul>
-  <li><code>apt update && apt upgtade</code></li>
+  <li><code>apt update && apt upgrade</code></li>
   <li><code>apt install python</code></li>
   <li><code>git clone https://github.com/debianlab/antisch/</code></li>
   <li><code>pip3 install requests</code></li>
